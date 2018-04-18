@@ -7,3 +7,25 @@
 //
 
 import Foundation
+
+protocol CityInformationPresenter {
+	func getWeatherData(longitude: Double, latitude: Double)
+}
+
+class CityInformationPresenterImplementation: CityInformationPresenter {
+	let currentWeatherDataService: CurrentWeatherDataService
+	
+	init(currentWeatherDataService: CurrentWeatherDataService) {
+		self.currentWeatherDataService = currentWeatherDataService
+	}
+	
+	func getWeatherData(longitude: Double, latitude: Double) {
+		currentWeatherDataService.getWeatherInformation(longitude: longitude, latitude: latitude, successHandler: { cityWeatherInformation in
+			
+		}, errorHandler: { error in
+			
+		}) {
+			
+		}
+	}
+}

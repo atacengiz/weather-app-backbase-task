@@ -6,4 +6,11 @@
 //  Copyright © 2018 Mobiquity Inc. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import MapKit
+
+class CityInformationViewController: UIViewController {
+	
+	var coordinates: CLLocationCoordinate2D?
+	var presenter: CityInformationPresenter?
+}
