@@ -37,12 +37,8 @@ class CurrentWeatherDataServiceTests: XCTestCase {
 			
 			XCTAssertEqual(cityWeatherInformation.tempature.current, 12)
 			XCTAssertEqual(cityWeatherInformation.tempature.humidity, 93)
-			XCTAssertEqual(cityWeatherInformation.tempature.max, 13)
-			XCTAssertEqual(cityWeatherInformation.tempature.min, 11)
-			XCTAssertEqual(cityWeatherInformation.tempature.pressure, 1022)
 			
 			XCTAssertEqual(cityWeatherInformation.wind.speed, 2.6)
-			XCTAssertEqual(cityWeatherInformation.wind.deg, 330)
 		}, errorHandler: { _ in
 			
 		})

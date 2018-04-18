@@ -39,6 +39,7 @@
 		64C4DDAD20877E9400B3D0B7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDAC20877E9400B3D0B7 /* SettingsViewController.swift */; };
 		64C4DDAF20877E9E00B3D0B7 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDAE20877E9E00B3D0B7 /* SettingsPresenter.swift */; };
 		64C4DDB1208780BC00B3D0B7 /* SettingsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDB0208780BC00B3D0B7 /* SettingsPresenterTests.swift */; };
+		64C4DDB42087977D00B3D0B7 /* CityInformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDB32087977D00B3D0B7 /* CityInformationCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		64C4DDAC20877E9400B3D0B7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		64C4DDAE20877E9E00B3D0B7 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		64C4DDB0208780BC00B3D0B7 /* SettingsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterTests.swift; sourceTree = "<group>"; };
+		64C4DDB32087977D00B3D0B7 /* CityInformationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInformationCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 		64C4DD7E20872ED600B3D0B7 /* CityInformation */ = {
 			isa = PBXGroup;
 			children = (
+				64C4DDB22087976A00B3D0B7 /* Views */,
 				64C4DD8C20873F1300B3D0B7 /* CityInformationPresenter.swift */,
 				64C4DD8A20873ECE00B3D0B7 /* CityInformationViewController.swift */,
 			);
@@ -293,6 +296,14 @@
 				64C4DDAC20877E9400B3D0B7 /* SettingsViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		64C4DDB22087976A00B3D0B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				64C4DDB32087977D00B3D0B7 /* CityInformationCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +428,7 @@
 				64C4DDAA20877C7A00B3D0B7 /* HelpViewController.swift in Sources */,
 				64C4DD8020872EF000B3D0B7 /* HomePresenter.swift in Sources */,
 				64C4DD942087611900B3D0B7 /* CityWeatherInformationPersistanceHelper.swift in Sources */,
+				64C4DDB42087977D00B3D0B7 /* CityInformationCollectionViewCell.swift in Sources */,
 				645F773520862EDC002F6306 /* CityWeatherInformation.swift in Sources */,
 				645F773E2086351E002F6306 /* Constants.swift in Sources */,
 			);

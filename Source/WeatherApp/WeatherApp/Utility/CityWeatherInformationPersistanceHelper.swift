@@ -24,7 +24,12 @@ struct CityWeatherPersistanceHelperImplementation: CityWeatherPersistanceHelper 
 			storedCities = [info]
 		}
 		else {
-			storedCities?.append(info)
+			if let _ = storedCities?.first(where: {$0.id == info.id }) {
+				return
+			}
+			else {
+				storedCities?.append(info)
+			}
 		}
 		
 		storeCities(array: storedCities)

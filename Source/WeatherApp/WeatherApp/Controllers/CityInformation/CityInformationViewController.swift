@@ -16,9 +16,11 @@ class CityInformationViewController: UIViewController {
 	@IBOutlet weak private var tempatureValueLabel: UILabel!
 	@IBOutlet weak private var humidityValueLabel: UILabel!
 	@IBOutlet weak private var windValueLabel: UILabel!
+	@IBOutlet weak private var collectionView: UICollectionView!
 	
 	var coordinates: CLLocationCoordinate2D?
 	var presenter: CityInformationPresenter?
+	var weatherConditions = [WeatherConditions]()
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -48,6 +50,9 @@ class CityInformationViewController: UIViewController {
 		tempatureValueLabel.text = "\(String(format: "%.2f", cityWeatherInformation.tempature.current)) \(unit)"
 		humidityValueLabel.text = "\(cityWeatherInformation.tempature.humidity)"
 		windValueLabel.text = "\(String(format: "%.2f", cityWeatherInformation.wind.speed))"
+		
+		weatherConditions = cityWeatherInformation.weather
+		collectionView.reloadData()
 	}
 	
 	// MARK: Private functions
@@ -60,5 +65,27 @@ class CityInformationViewController: UIViewController {
 		
 		loadingView.isHidden = false
 		presenter.getWeatherData(longitude: coordinates.longitude, latitude: coordinates.latitude)
+	}
+}
+
+extension CityInformationViewController: UICollectionViewDataSource {
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		return 1
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return weatherConditions.count
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let identifier = "CityInformationCollectionViewCell"
+		
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+		
+		if let cell = cell as? CityInformationCollectionViewCell {
+			cell.set(weatherDescription: weatherConditions[indexPath.row].description, iconName: weatherConditions[indexPath.row].icon)
+		}
+		
+		return cell
 	}
 }
