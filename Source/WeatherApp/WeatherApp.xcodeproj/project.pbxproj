@@ -32,6 +32,8 @@
 		64C4DD992087629000B3D0B7 /* UserDefaultsHelperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DD982087629000B3D0B7 /* UserDefaultsHelperMock.swift */; };
 		64C4DD9B208762C400B3D0B7 /* CityWeatherInformationPersistanceHelperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DD9A208762C400B3D0B7 /* CityWeatherInformationPersistanceHelperMock.swift */; };
 		64C4DDA02087678300B3D0B7 /* CityWeatherInformationPersistanceHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DD9F2087678300B3D0B7 /* CityWeatherInformationPersistanceHelperTests.swift */; };
+		64C4DDA220876B9C00B3D0B7 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDA120876B9C00B3D0B7 /* HomeTableViewCell.swift */; };
+		64C4DDA520876D1F00B3D0B7 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDA420876D1F00B3D0B7 /* Coordinates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		64C4DD982087629000B3D0B7 /* UserDefaultsHelperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelperMock.swift; sourceTree = "<group>"; };
 		64C4DD9A208762C400B3D0B7 /* CityWeatherInformationPersistanceHelperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherInformationPersistanceHelperMock.swift; sourceTree = "<group>"; };
 		64C4DD9F2087678300B3D0B7 /* CityWeatherInformationPersistanceHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherInformationPersistanceHelperTests.swift; sourceTree = "<group>"; };
+		64C4DDA120876B9C00B3D0B7 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		64C4DDA420876D1F00B3D0B7 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 				645F773020862D2F002F6306 /* TempatureInformation.swift */,
 				645F773220862EB5002F6306 /* WindInformation.swift */,
 				645F773420862EDC002F6306 /* CityWeatherInformation.swift */,
+				64C4DDA420876D1F00B3D0B7 /* Coordinates.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 		64C4DD7D20872ED000B3D0B7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				64C4DDA320876BA200B3D0B7 /* Views */,
 				64C4DD7F20872EF000B3D0B7 /* HomePresenter.swift */,
 				64C4DD8120872FA300B3D0B7 /* HomeViewController.swift */,
 			);
@@ -248,6 +254,14 @@
 				64C4DD9F2087678300B3D0B7 /* CityWeatherInformationPersistanceHelperTests.swift */,
 			);
 			path = UtilityTests;
+			sourceTree = "<group>";
+		};
+		64C4DDA320876BA200B3D0B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				64C4DDA120876B9C00B3D0B7 /* HomeTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,12 +372,14 @@
 			files = (
 				645F773320862EB5002F6306 /* WindInformation.swift in Sources */,
 				645F772F20862C71002F6306 /* WeatherConditions.swift in Sources */,
+				64C4DDA220876B9C00B3D0B7 /* HomeTableViewCell.swift in Sources */,
 				64C4DD8B20873ECE00B3D0B7 /* CityInformationViewController.swift in Sources */,
 				645F772C20862C50002F6306 /* CurrentWeatherDataService.swift in Sources */,
 				645F770A2086298F002F6306 /* AppDelegate.swift in Sources */,
 				64C4DD8D20873F1300B3D0B7 /* CityInformationPresenter.swift in Sources */,
 				64C4DD92208754DB00B3D0B7 /* UserDefaultsHelper.swift in Sources */,
 				64C4DD8220872FA300B3D0B7 /* HomeViewController.swift in Sources */,
+				64C4DDA520876D1F00B3D0B7 /* Coordinates.swift in Sources */,
 				645F773120862D2F002F6306 /* TempatureInformation.swift in Sources */,
 				64C4DD8020872EF000B3D0B7 /* HomePresenter.swift in Sources */,
 				64C4DD942087611900B3D0B7 /* CityWeatherInformationPersistanceHelper.swift in Sources */,
