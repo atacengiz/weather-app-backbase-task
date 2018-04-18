@@ -36,4 +36,4 @@
 
 ## Code coverage
 
-- Code coverage is at %53. It could be much higher but because of time limitations, only test what i found most important. Pretty printed code coverage file can be found in the repository. [Report](./Source/WeatherApp/build/reports/tests.html)
+- Code coverage is at %53. It could be much higher but because of time limitations, only test what i found most important. Pretty printed code coverage file can be found in the repository.
