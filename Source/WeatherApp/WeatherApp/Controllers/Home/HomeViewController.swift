@@ -48,7 +48,10 @@ class HomeViewController: UIViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		guard let coordinates = selectedLocationCoordinates, let viewController = segue.destination as? CityInformationViewController, segue.identifier == "segueToCityInformation" else { return }
-		viewController.presenter = CityInformationPresenterImplementation(currentWeatherDataService: CurrentWeatherDataServiceImplementation())
+		let presenter = CityInformationPresenterImplementation(currentWeatherDataService: CurrentWeatherDataServiceImplementation())
+		presenter.viewController = viewController
+		
+		viewController.presenter = presenter
 		viewController.coordinates = coordinates
 	}
 }

@@ -48,10 +48,13 @@ class CurrentWeatherDataServiceImplementation: CurrentWeatherDataService {
 					errorHandler(CurrentWeatherDataError.connectionError(error.localizedDescription))
 				}
 				else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
-					if let cityInformation = try? JSONDecoder().decode(CityWeatherInformation.self, from: data) {
+					do {
+						let cityInformation = try JSONDecoder().decode(CityWeatherInformation.self, from: data)
+						print(cityInformation)
 						successHandler(cityInformation)
 					}
-					else {
+					catch let error {
+						print(error)
 						errorHandler(CurrentWeatherDataError.responseFormatNotExpected)
 					}
 				}

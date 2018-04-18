@@ -13,19 +13,31 @@ protocol CityInformationPresenter {
 }
 
 class CityInformationPresenterImplementation: CityInformationPresenter {
-	let currentWeatherDataService: CurrentWeatherDataService
+	// MARK: Private variables
+	private let currentWeatherDataService: CurrentWeatherDataService
+	
+	// MARK: Public variables
+	weak var viewController: CityInformationViewController?
+	var cityWeatherInformation: CityWeatherInformation?
 	
 	init(currentWeatherDataService: CurrentWeatherDataService) {
 		self.currentWeatherDataService = currentWeatherDataService
 	}
 	
 	func getWeatherData(longitude: Double, latitude: Double) {
-		currentWeatherDataService.getWeatherInformation(longitude: longitude, latitude: latitude, successHandler: { cityWeatherInformation in
+		currentWeatherDataService.getWeatherInformation(longitude: longitude, latitude: latitude, successHandler: { [weak self] cityWeatherInformation in
+			self?.cityWeatherInformation = cityWeatherInformation
 			
-		}, errorHandler: { error in
-			
-		}) {
-			
+			DispatchQueue.main.async { [weak self] in
+				self?.viewController?.show(cityWeatherInformation: cityWeatherInformation)
+			}
+		}, errorHandler: { [weak self] error in
+			self?.cityWeatherInformation = nil
+			print(error)
+		}) { [weak self] in
+			DispatchQueue.main.async { [weak self] in
+				self?.viewController?.showResponse(isSuccess: self?.cityWeatherInformation != nil)
+			}
 		}
 	}
 }

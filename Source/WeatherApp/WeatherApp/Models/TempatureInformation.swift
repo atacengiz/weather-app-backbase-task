@@ -9,11 +9,11 @@
 import Foundation
 
 struct TempatureInformation: Codable {
-	var current: Int
+	var current: Double
 	var pressure: Int
 	var humidity: Int
-	var min: Int
-	var max: Int
+	var min: Double
+	var max: Double
 	
 	enum CodingKeys: String, CodingKey {
 		case current = "temp"
