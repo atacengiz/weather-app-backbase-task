@@ -18,7 +18,7 @@ class CurrentWeatherDataServiceMock: CurrentWeatherDataService {
 	var cityWeatherInformationToReturn: CityWeatherInformation?
 	var errorToReturn: CurrentWeatherDataError?
 	
-	func getWeatherInformation(longitude: Double, latitude: Double, successHandler: @escaping (CityWeatherInformation) -> Void, errorHandler: @escaping (CurrentWeatherDataError) -> Void, completionHandler: @escaping () -> Void) {
+	func getWeatherInformation(longitude: Double, latitude: Double, successHandler: @escaping (CityWeatherInformation) -> Void, errorHandler: @escaping (CurrentWeatherDataError) -> Void) {
 		isGetWeatherInformationCalled = true
 		self.longitude = longitude
 		self.latitude = latitude
@@ -29,7 +29,5 @@ class CurrentWeatherDataServiceMock: CurrentWeatherDataService {
 		else if let errorToReturn = errorToReturn {
 			errorHandler(errorToReturn)
 		}
-		
-		completionHandler()
 	}
 }

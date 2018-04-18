@@ -45,9 +45,7 @@ class CurrentWeatherDataServiceTests: XCTestCase {
 			XCTAssertEqual(cityWeatherInformation.wind.deg, 330)
 		}, errorHandler: { _ in
 			
-		}) {
-			
-		}
+		})
 	}
 	
 	func testGetWeatherInformationFailsWithConnectionIssue() {
@@ -60,9 +58,7 @@ class CurrentWeatherDataServiceTests: XCTestCase {
 		}, errorHandler: { error in
 			XCTAssertNotNil(error)
 			XCTAssertNotNil(error.localizedDescription)
-		}) {
-			
-		}
+		})
 	}
 	
 	func testGetWeatherInformationWithUnexpectedResponse() {
@@ -78,9 +74,7 @@ class CurrentWeatherDataServiceTests: XCTestCase {
 		}, errorHandler: { error in
 			XCTAssertNotNil(error)
 			XCTAssertEqual(error, CurrentWeatherDataError.responseFormatNotExpected)
-		}) {
-			
-		}
+		})
 	}
 }
 

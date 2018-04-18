@@ -13,19 +13,34 @@ protocol CityInformationPresenter {
 }
 
 class CityInformationPresenterImplementation: CityInformationPresenter {
-	let currentWeatherDataService: CurrentWeatherDataService
+	// MARK: Private variables
+	private let currentWeatherDataService: CurrentWeatherDataService
+	private let cityWeatherPersistanceHelper: CityWeatherPersistanceHelper
 	
-	init(currentWeatherDataService: CurrentWeatherDataService) {
+	// MARK: Public variables
+	weak var viewController: CityInformationViewController?
+	var cityWeatherInformation: CityWeatherInformation?
+	
+	init(currentWeatherDataService: CurrentWeatherDataService, cityWeatherPersistanceHelper: CityWeatherPersistanceHelper) {
 		self.currentWeatherDataService = currentWeatherDataService
+		self.cityWeatherPersistanceHelper = cityWeatherPersistanceHelper
 	}
 	
 	func getWeatherData(longitude: Double, latitude: Double) {
-		currentWeatherDataService.getWeatherInformation(longitude: longitude, latitude: latitude, successHandler: { cityWeatherInformation in
+		currentWeatherDataService.getWeatherInformation(longitude: longitude, latitude: latitude, successHandler: { [weak self] cityWeatherInformation in
+			self?.cityWeatherInformation = cityWeatherInformation
+			self?.cityWeatherPersistanceHelper.storeCityInformation(info: cityWeatherInformation)
 			
-		}, errorHandler: { error in
-			
-		}) {
-			
-		}
+			DispatchQueue.main.async { [weak self] in
+				self?.viewController?.show(cityWeatherInformation: cityWeatherInformation)
+				self?.viewController?.showResponse(isSuccess: true)
+			}
+		}, errorHandler: { [weak self] error in
+			self?.cityWeatherInformation = nil
+			print(error)
+			DispatchQueue.main.async { [weak self] in
+				self?.viewController?.showResponse(isSuccess: false)
+			}
+		})
 	}
 }
