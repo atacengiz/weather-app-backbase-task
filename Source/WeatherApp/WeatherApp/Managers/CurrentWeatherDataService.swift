@@ -10,7 +10,6 @@ import Foundation
 
 typealias CurrentWeatherDataSuccessHandler = (CityWeatherInformation) -> Void
 typealias CurrentWeatherDataErrorHandler = (CurrentWeatherDataError) -> Void
-typealias ServiceCompletionHandler = () -> Void
 
 enum CurrentWeatherDataError: Error, Equatable {
 	case connectionError(String?)
@@ -18,7 +17,7 @@ enum CurrentWeatherDataError: Error, Equatable {
 }
 
 protocol CurrentWeatherDataService {
-	func getWeatherInformation(longitude: Double, latitude: Double, successHandler: @escaping CurrentWeatherDataSuccessHandler, errorHandler: @escaping CurrentWeatherDataErrorHandler, completionHandler: @escaping ServiceCompletionHandler)
+	func getWeatherInformation(longitude: Double, latitude: Double, successHandler: @escaping CurrentWeatherDataSuccessHandler, errorHandler: @escaping CurrentWeatherDataErrorHandler)
 }
 
 class CurrentWeatherDataServiceImplementation: CurrentWeatherDataService {
@@ -29,7 +28,7 @@ class CurrentWeatherDataServiceImplementation: CurrentWeatherDataService {
 		self.session = session
 	}
 	
-	func getWeatherInformation(longitude: Double, latitude: Double, successHandler: @escaping (CityWeatherInformation) -> Void, errorHandler: @escaping (CurrentWeatherDataError) -> Void, completionHandler: @escaping () -> Void) {
+	func getWeatherInformation(longitude: Double, latitude: Double, successHandler: @escaping (CityWeatherInformation) -> Void, errorHandler: @escaping (CurrentWeatherDataError) -> Void) {
 		
 		dataTask?.cancel()
 		
@@ -61,8 +60,6 @@ class CurrentWeatherDataServiceImplementation: CurrentWeatherDataService {
 				else {
 					errorHandler(CurrentWeatherDataError.connectionError(nil))
 				}
-				
-				completionHandler()
 			}
 
 			dataTask?.resume()
