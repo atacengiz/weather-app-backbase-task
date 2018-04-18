@@ -96,7 +96,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="grO-hn-dzq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="odQ-J0-ifq"/>
+                    <navigationItem key="navigationItem" title="Home" id="odQ-J0-ifq">
+                        <barButtonItem key="leftBarButtonItem" title="Help" id="jgu-Z6-4zx">
+                            <connections>
+                                <segue destination="2T6-cW-yHa" kind="show" id="IrN-p9-esl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="KBA-Rx-bq1" id="yjO-Jy-Vpd"/>
                         <outlet property="tableView" destination="U5h-O8-XVO" id="58T-L8-M8j"/>
@@ -218,6 +224,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gt0-5p-mQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1896.8" y="174.96251874062969"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="UOO-7b-yys">
+            <objects>
+                <viewController title="Help" id="2T6-cW-yHa" customClass="HelpViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="my2-3t-Dd6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4K-Ci-nNL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="E4K-Ci-nNL" firstAttribute="top" secondItem="fAL-qo-H82" secondAttribute="top" id="VOu-NF-Byv"/>
+                            <constraint firstItem="fAL-qo-H82" firstAttribute="bottom" secondItem="E4K-Ci-nNL" secondAttribute="bottom" id="ZAr-z0-eXp"/>
+                            <constraint firstItem="fAL-qo-H82" firstAttribute="trailing" secondItem="E4K-Ci-nNL" secondAttribute="trailing" id="xIN-ND-R5x"/>
+                            <constraint firstItem="E4K-Ci-nNL" firstAttribute="leading" secondItem="fAL-qo-H82" secondAttribute="leading" id="ylc-Bs-LUx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fAL-qo-H82"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="E4K-Ci-nNL" id="oBM-j6-3tC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdL-gm-JWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1897" y="953"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nnn-xU-3zN">

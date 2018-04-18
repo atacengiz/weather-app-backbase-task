@@ -35,6 +35,7 @@
 		64C4DDA220876B9C00B3D0B7 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDA120876B9C00B3D0B7 /* HomeTableViewCell.swift */; };
 		64C4DDA520876D1F00B3D0B7 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDA420876D1F00B3D0B7 /* Coordinates.swift */; };
 		64C4DDA7208778D700B3D0B7 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDA6208778D700B3D0B7 /* HomePresenterTests.swift */; };
+		64C4DDAA20877C7A00B3D0B7 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDA920877C7A00B3D0B7 /* HelpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		64C4DDA120876B9C00B3D0B7 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		64C4DDA420876D1F00B3D0B7 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		64C4DDA6208778D700B3D0B7 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		64C4DDA920877C7A00B3D0B7 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 		64C4DD7C20872EC400B3D0B7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				64C4DDA820877C6F00B3D0B7 /* Help */,
 				64C4DD7D20872ED000B3D0B7 /* Home */,
 				64C4DD7E20872ED600B3D0B7 /* CityInformation */,
 			);
@@ -265,6 +268,14 @@
 				64C4DDA120876B9C00B3D0B7 /* HomeTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		64C4DDA820877C6F00B3D0B7 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				64C4DDA920877C7A00B3D0B7 /* HelpViewController.swift */,
+			);
+			path = Help;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +395,7 @@
 				64C4DD8220872FA300B3D0B7 /* HomeViewController.swift in Sources */,
 				64C4DDA520876D1F00B3D0B7 /* Coordinates.swift in Sources */,
 				645F773120862D2F002F6306 /* TempatureInformation.swift in Sources */,
+				64C4DDAA20877C7A00B3D0B7 /* HelpViewController.swift in Sources */,
 				64C4DD8020872EF000B3D0B7 /* HomePresenter.swift in Sources */,
 				64C4DD942087611900B3D0B7 /* CityWeatherInformationPersistanceHelper.swift in Sources */,
 				645F773520862EDC002F6306 /* CityWeatherInformation.swift in Sources */,

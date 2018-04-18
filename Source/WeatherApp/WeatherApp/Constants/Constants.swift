@@ -20,3 +20,7 @@ struct Units {
 struct UserDefaultsConstants {
 	static let savedCitySearch = "savedCitySearch"
 }
+
+struct HelpPageConstants {
+	static let url = "https://support.apple.com/en-in/HT202570"
+}
