@@ -34,7 +34,7 @@ class HomePresenterTests: XCTestCase {
 	}
 	
 	func testShowStoredCities() {
-		let cityInfo = [CityWeatherInformation(id: 1, name: "test1", weather: [], tempature: TempatureInformation(current: 1.0, pressure: 1, humidity: 2, min: 3.0, max: 4.0), wind: WindInformation(speed: 1.0, deg: 2.0), coord: Coordinates(lon: 1.0, lat: 1.0))]
+		let cityInfo = [CityWeatherInformation(id: 1, name: "test1", weather: [], tempature: TempatureInformation(current: 1.0, humidity: 2), wind: WindInformation(speed: 1.0), coord: Coordinates(lon: 1.0, lat: 1.0))]
 
 		cityWeatherPersistanceHelperMock.storedCityInfoToReturn = cityInfo
 		
@@ -47,7 +47,7 @@ class HomePresenterTests: XCTestCase {
 	}
 	
 	func testRemoveStoredCity() {
-		let cityInfo = CityWeatherInformation(id: 1, name: "test1", weather: [], tempature: TempatureInformation(current: 1.0, pressure: 1, humidity: 2, min: 3.0, max: 4.0), wind: WindInformation(speed: 1.0, deg: 2.0), coord: Coordinates(lon: 1.0, lat: 1.0))
+		let cityInfo = CityWeatherInformation(id: 1, name: "test1", weather: [], tempature: TempatureInformation(current: 1.0, humidity: 2), wind: WindInformation(speed: 1.0), coord: Coordinates(lon: 1.0, lat: 1.0))
 		
 		sut.removeCity(cityInfo: cityInfo)
 		
