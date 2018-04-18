@@ -15,20 +15,18 @@ protocol HomePresenter {
 
 class HomePresenterImplementation: HomePresenter {
 	
-	// MARK: Public variables
-	
 	// MARK: Private variables
 	private let cityWeatherPersistanceHelper: CityWeatherPersistanceHelper
-	private weak var viewController: HomeViewController?
+	private let viewController: HomeViewControllerType
 
-	init(cityWeatherPersistanceHelper: CityWeatherPersistanceHelper, viewController: HomeViewController) {
+	init(cityWeatherPersistanceHelper: CityWeatherPersistanceHelper, viewController: HomeViewControllerType) {
 		self.cityWeatherPersistanceHelper = cityWeatherPersistanceHelper
 		self.viewController = viewController
 	}
 	
 	func showStoredCities() {
 		guard let storedCities = cityWeatherPersistanceHelper.getStoredCityInformation() else { return }
-		viewController?.updateStoredCities(cities: storedCities)
+		viewController.updateStoredCities(cities: storedCities)
 	}
 	
 	func removeCity(cityInfo: CityWeatherInformation) {

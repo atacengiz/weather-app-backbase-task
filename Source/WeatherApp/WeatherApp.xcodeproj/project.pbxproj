@@ -34,6 +34,7 @@
 		64C4DDA02087678300B3D0B7 /* CityWeatherInformationPersistanceHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DD9F2087678300B3D0B7 /* CityWeatherInformationPersistanceHelperTests.swift */; };
 		64C4DDA220876B9C00B3D0B7 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDA120876B9C00B3D0B7 /* HomeTableViewCell.swift */; };
 		64C4DDA520876D1F00B3D0B7 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDA420876D1F00B3D0B7 /* Coordinates.swift */; };
+		64C4DDA7208778D700B3D0B7 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4DDA6208778D700B3D0B7 /* HomePresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		64C4DD9F2087678300B3D0B7 /* CityWeatherInformationPersistanceHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherInformationPersistanceHelperTests.swift; sourceTree = "<group>"; };
 		64C4DDA120876B9C00B3D0B7 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		64C4DDA420876D1F00B3D0B7 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		64C4DDA6208778D700B3D0B7 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				64C4DD962087623F00B3D0B7 /* CityInformationPresenterTests.swift */,
+				64C4DDA6208778D700B3D0B7 /* HomePresenterTests.swift */,
 			);
 			path = PresenterTests;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			files = (
 				64C4DDA02087678300B3D0B7 /* CityWeatherInformationPersistanceHelperTests.swift in Sources */,
 				64C4DD9B208762C400B3D0B7 /* CityWeatherInformationPersistanceHelperMock.swift in Sources */,
+				64C4DDA7208778D700B3D0B7 /* HomePresenterTests.swift in Sources */,
 				64C4DD992087629000B3D0B7 /* UserDefaultsHelperMock.swift in Sources */,
 				648DF37D2086439500634617 /* CurrentWeatherDataServiceTests.swift in Sources */,
 				64C4DD972087623F00B3D0B7 /* CityInformationPresenterTests.swift in Sources */,

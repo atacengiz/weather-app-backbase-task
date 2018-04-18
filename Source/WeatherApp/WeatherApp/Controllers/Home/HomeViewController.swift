@@ -9,7 +9,11 @@
 import UIKit
 import MapKit
 
-class HomeViewController: UIViewController {
+protocol HomeViewControllerType {
+	func updateStoredCities(cities: [CityWeatherInformation])
+}
+
+class HomeViewController: UIViewController, HomeViewControllerType {
 	
 	// MARK: Private variables
 	@IBOutlet weak private var mapView: MKMapView!
