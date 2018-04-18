@@ -20,7 +20,7 @@ class CityInformationPresenterTests: XCTestCase {
 		
 		currentWeatherDataServiceMock = CurrentWeatherDataServiceMock()
 		cityWeatherPersistaneHelperMock = CityWeatherPersistanceHelperMock()
-		sut = CityInformationPresenterImplementation(currentWeatherDataService: currentWeatherDataServiceMock, cityWeatherPersistanceHelper: cityWeatherPersistaneHelperMock)
+		sut = CityInformationPresenterImplementation(currentWeatherDataService: currentWeatherDataServiceMock, cityWeatherPersistanceHelper: cityWeatherPersistaneHelperMock, userDefaultsHelper: UserDefaultsHelperMock())
 	}
 	
 	override func tearDown() {

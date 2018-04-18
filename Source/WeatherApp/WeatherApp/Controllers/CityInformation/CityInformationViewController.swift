@@ -43,9 +43,9 @@ class CityInformationViewController: UIViewController {
 		}
 	}
 	
-	func show(cityWeatherInformation: CityWeatherInformation) {
+	func show(cityWeatherInformation: CityWeatherInformation, unit: String) {
 		cityNameLabel.text = cityWeatherInformation.name
-		tempatureValueLabel.text = "\(String(format: "%.2f", cityWeatherInformation.tempature.current)) \(Units.celcius)"
+		tempatureValueLabel.text = "\(String(format: "%.2f", cityWeatherInformation.tempature.current)) \(unit)"
 		humidityValueLabel.text = "\(cityWeatherInformation.tempature.humidity)"
 		windValueLabel.text = "\(String(format: "%.2f", cityWeatherInformation.wind.speed))"
 	}

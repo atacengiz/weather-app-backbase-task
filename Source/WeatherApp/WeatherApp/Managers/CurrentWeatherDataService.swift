@@ -17,7 +17,7 @@ enum CurrentWeatherDataError: Error, Equatable {
 }
 
 protocol CurrentWeatherDataService {
-	func getWeatherInformation(longitude: Double, latitude: Double, successHandler: @escaping CurrentWeatherDataSuccessHandler, errorHandler: @escaping CurrentWeatherDataErrorHandler)
+	func getWeatherInformation(longitude: Double, latitude: Double, unit: String, successHandler: @escaping CurrentWeatherDataSuccessHandler, errorHandler: @escaping CurrentWeatherDataErrorHandler)
 }
 
 class CurrentWeatherDataServiceImplementation: CurrentWeatherDataService {
@@ -28,7 +28,7 @@ class CurrentWeatherDataServiceImplementation: CurrentWeatherDataService {
 		self.session = session
 	}
 	
-	func getWeatherInformation(longitude: Double, latitude: Double, successHandler: @escaping (CityWeatherInformation) -> Void, errorHandler: @escaping (CurrentWeatherDataError) -> Void) {
+	func getWeatherInformation(longitude: Double, latitude: Double, unit: String, successHandler: @escaping (CityWeatherInformation) -> Void, errorHandler: @escaping (CurrentWeatherDataError) -> Void) {
 		
 		dataTask?.cancel()
 		
@@ -36,7 +36,7 @@ class CurrentWeatherDataServiceImplementation: CurrentWeatherDataService {
 			let queryComponents: [URLQueryItem] = [
 				URLQueryItem(name: "lat", value: String(latitude)),
 				URLQueryItem(name: "lon", value: String(longitude)),
-				URLQueryItem(name: "units", value: "metric"),
+				URLQueryItem(name: "units", value: unit),
 				URLQueryItem(name: "APPID", value: ServiceConstants.appId)
 			]
 			urlComponents.queryItems = queryComponents

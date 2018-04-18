@@ -13,12 +13,9 @@ struct ServiceConstants {
 	static let appId = "c6e381d8c7ff98f0fee43775817cf6ad"
 }
 
-struct Units {
-	static let celcius = "°C"
-}
-
 struct UserDefaultsConstants {
 	static let savedCitySearch = "savedCitySearch"
+	static let preferredUnit = "preferredUnit"
 }
 
 struct HelpPageConstants {

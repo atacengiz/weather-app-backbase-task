@@ -102,6 +102,11 @@
                                 <segue destination="2T6-cW-yHa" kind="show" id="IrN-p9-esl"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="bVj-AM-OI1">
+                            <connections>
+                                <segue destination="F1V-l8-vZd" kind="show" id="2dm-cb-M8a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="KBA-Rx-bq1" id="yjO-Jy-Vpd"/>
@@ -112,6 +117,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HGr-Wp-cYA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="780" y="174.96251874062969"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="GHM-Bi-KIu">
+            <objects>
+                <viewController title="Settings" id="F1V-l8-vZd" customClass="SettingsViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gQN-fy-1IE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tempature unit:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Av1-Ec-btY">
+                                <rect key="frame" x="21" y="85" width="333" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cwj-Fj-qfi">
+                                <rect key="frame" x="109" y="123" width="157" height="29"/>
+                                <segments>
+                                    <segment title="Celcius"/>
+                                    <segment title="Fahrenheit"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedValueChangedWithSender:" destination="F1V-l8-vZd" eventType="valueChanged" id="GHc-yM-Iiu"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Av1-Ec-btY" firstAttribute="top" secondItem="ND1-lW-2eO" secondAttribute="top" constant="21" id="2N4-AQ-IFM"/>
+                            <constraint firstItem="cwj-Fj-qfi" firstAttribute="centerX" secondItem="gQN-fy-1IE" secondAttribute="centerX" id="7mH-Xg-t7v"/>
+                            <constraint firstItem="ND1-lW-2eO" firstAttribute="trailing" secondItem="Av1-Ec-btY" secondAttribute="trailing" constant="21" id="AKV-az-tW9"/>
+                            <constraint firstItem="cwj-Fj-qfi" firstAttribute="top" secondItem="Av1-Ec-btY" secondAttribute="bottom" constant="18" id="nI7-IH-Bks"/>
+                            <constraint firstItem="Av1-Ec-btY" firstAttribute="leading" secondItem="ND1-lW-2eO" secondAttribute="leading" constant="21" id="vtI-4K-oLB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ND1-lW-2eO"/>
+                    </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="cwj-Fj-qfi" id="pre-to-6b6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYP-lm-lC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1896.8" y="-516.79160419790105"/>
         </scene>
         <!--City Information-->
         <scene sceneID="Ror-e1-YeU">

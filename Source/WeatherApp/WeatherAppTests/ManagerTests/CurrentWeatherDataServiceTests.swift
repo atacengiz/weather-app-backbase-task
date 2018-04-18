@@ -30,7 +30,7 @@ class CurrentWeatherDataServiceTests: XCTestCase {
 		
 		let latitude = 12.0
 		let longitude = 120.0
-		sut.getWeatherInformation(longitude: longitude, latitude: latitude, successHandler: { cityWeatherInformation in
+		sut.getWeatherInformation(longitude: longitude, latitude: latitude, unit: "metric", successHandler: { cityWeatherInformation in
 			XCTAssertNotNil(cityWeatherInformation)
 			XCTAssertEqual(cityWeatherInformation.id, 1851632)
 			XCTAssertEqual(cityWeatherInformation.name, "Shuzenji")
@@ -53,7 +53,7 @@ class CurrentWeatherDataServiceTests: XCTestCase {
 		
 		let latitude = 12.0
 		let longitude = 120.0
-		sut.getWeatherInformation(longitude: longitude, latitude: latitude, successHandler: { _ in
+		sut.getWeatherInformation(longitude: longitude, latitude: latitude, unit: "metric", successHandler: { _ in
 			
 		}, errorHandler: { error in
 			XCTAssertNotNil(error)
@@ -69,7 +69,7 @@ class CurrentWeatherDataServiceTests: XCTestCase {
 		
 		let latitude = 12.0
 		let longitude = 120.0
-		sut.getWeatherInformation(longitude: longitude, latitude: latitude, successHandler: { _ in
+		sut.getWeatherInformation(longitude: longitude, latitude: latitude, unit: "metric", successHandler: { _ in
 
 		}, errorHandler: { error in
 			XCTAssertNotNil(error)

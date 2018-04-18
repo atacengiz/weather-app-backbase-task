@@ -10,7 +10,6 @@ import Foundation
 @testable import WeatherApp
 
 class CurrentWeatherDataServiceMock: CurrentWeatherDataService {
-	
 	var isGetWeatherInformationCalled = false
 	var longitude: Double?
 	var latitude: Double?
@@ -18,7 +17,7 @@ class CurrentWeatherDataServiceMock: CurrentWeatherDataService {
 	var cityWeatherInformationToReturn: CityWeatherInformation?
 	var errorToReturn: CurrentWeatherDataError?
 	
-	func getWeatherInformation(longitude: Double, latitude: Double, successHandler: @escaping (CityWeatherInformation) -> Void, errorHandler: @escaping (CurrentWeatherDataError) -> Void) {
+	func getWeatherInformation(longitude: Double, latitude: Double, unit: String, successHandler: @escaping CurrentWeatherDataSuccessHandler, errorHandler: @escaping CurrentWeatherDataErrorHandler) {
 		isGetWeatherInformationCalled = true
 		self.longitude = longitude
 		self.latitude = latitude
