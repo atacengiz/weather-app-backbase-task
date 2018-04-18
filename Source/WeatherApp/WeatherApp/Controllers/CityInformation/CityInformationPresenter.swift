@@ -1,5 +1,5 @@
 //
-//  HomePresenter.swift
+//  CityInformationPresenter.swift
 //  WeatherApp
 //
 //  Created by Ata Cenqiz on 18/04/2018.
@@ -7,9 +7,3 @@
 //
 
 import Foundation
-
-protocol HomePresenter {
-}
-
-class HomePresenterImplementation: HomePresenter {
-}
