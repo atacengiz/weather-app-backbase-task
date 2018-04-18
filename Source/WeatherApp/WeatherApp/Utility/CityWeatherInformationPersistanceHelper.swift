@@ -11,6 +11,7 @@ import Foundation
 protocol CityWeatherPersistanceHelper {
 	func storeCityInformation(info: CityWeatherInformation)
 	func getStoredCityInformation() -> [CityWeatherInformation]?
+	func removeCityInformation(info: CityWeatherInformation)
 }
 
 struct CityWeatherPersistanceHelperImplementation: CityWeatherPersistanceHelper {
@@ -26,10 +27,7 @@ struct CityWeatherPersistanceHelperImplementation: CityWeatherPersistanceHelper 
 			storedCities?.append(info)
 		}
 		
-		let encoder = JSONEncoder()
-		if let encoded = try? encoder.encode(storedCities) {
-			userDefaultsHelper.save(key: UserDefaultsConstants.savedCitySearch, value: encoded)
-		}
+		storeCities(array: storedCities)
 	}
 	
 	func getStoredCityInformation() -> [CityWeatherInformation]? {
@@ -41,5 +39,24 @@ struct CityWeatherPersistanceHelperImplementation: CityWeatherPersistanceHelper 
 		}
 		
 		return nil
+	}
+	
+	func removeCityInformation(info: CityWeatherInformation) {
+		guard var storedCities = getStoredCityInformation() else { return }
+		let index = storedCities.index { object -> Bool in
+			return object.id == info.id
+		}
+		
+		guard let arrayIndex = index else { return }
+		storedCities.remove(at: arrayIndex)
+		
+		storeCities(array: storedCities)
+	}
+	
+	private func storeCities(array: [CityWeatherInformation]?) {
+		let encoder = JSONEncoder()
+		if let encoded = try? encoder.encode(array) {
+			userDefaultsHelper.save(key: UserDefaultsConstants.savedCitySearch, value: encoded)
+		}
 	}
 }

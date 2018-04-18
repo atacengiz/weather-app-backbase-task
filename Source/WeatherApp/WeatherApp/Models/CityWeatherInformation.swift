@@ -14,6 +14,7 @@ struct CityWeatherInformation: Codable {
 	var weather: [WeatherConditions]
 	var tempature: TempatureInformation
 	var wind: WindInformation
+	var coord: Coordinates
 	
 	enum CodingKeys: String, CodingKey {
 		case id
@@ -21,5 +22,6 @@ struct CityWeatherInformation: Codable {
 		case weather
 		case tempature = "main"
 		case wind
+		case coord
 	}
 }

@@ -9,19 +9,36 @@
 import UIKit
 import MapKit
 
-class HomeViewController: UIViewController {
+protocol HomeViewControllerType {
+	func updateStoredCities(cities: [CityWeatherInformation])
+}
+
+class HomeViewController: UIViewController, HomeViewControllerType {
 	
 	// MARK: Private variables
 	@IBOutlet weak private var mapView: MKMapView!
+	@IBOutlet weak private var tableView: UITableView!
 	
 	private var selectedLocationCoordinates: CLLocationCoordinate2D?
-	private var presenter: HomePresenter = HomePresenterImplementation()
+	private var presenter: HomePresenter?
+	private var storedCities: [CityWeatherInformation]?
 	
 	// MARK: UIViewController lifecyle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		setPresenter()
 		setMapKitTouchRecognizer()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		presenter?.showStoredCities()
+	}
+	
+	private func setPresenter() {
+		presenter = HomePresenterImplementation(cityWeatherPersistanceHelper: CityWeatherPersistanceHelperImplementation(userDefaultsHelper: UserDefaultsHelperImplementation()), viewController: self)
 	}
 	
 	// MARK: MapKit touch
@@ -29,6 +46,11 @@ class HomeViewController: UIViewController {
 		let longTouchRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(HomeViewController.mapKitTouched(gestureRecognizer:)))
 		longTouchRecognizer.minimumPressDuration = 0.5
 		mapView.addGestureRecognizer(longTouchRecognizer)
+	}
+	
+	func updateStoredCities(cities: [CityWeatherInformation]) {
+		storedCities = cities
+		tableView.reloadData()
 	}
 	
 	@objc
@@ -53,6 +75,50 @@ class HomeViewController: UIViewController {
 		
 		viewController.presenter = presenter
 		viewController.coordinates = coordinates
+	}
+}
+
+// MARK: UITableViewDataSource
+extension HomeViewController: UITableViewDataSource {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		guard let storedCities = storedCities else { return 1 }
+		return storedCities.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "homeTableViewCell", for: indexPath)
+		
+		if let cell = cell as? HomeTableViewCell {
+			if let storedCities = storedCities {
+				cell.setCity(name: storedCities[indexPath.row].name)
+			}
+			else {
+				cell.setCity(name: "Please select a location to search")
+			}
+		}
+		
+		return cell
+	}
+}
+
+// MARK: UITableViewDelegate
+extension HomeViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		
+		guard let storedCities = storedCities else { return }
+		let selectedCity = storedCities[indexPath.row]
+		let coordinate = CLLocationCoordinate2D(latitude: selectedCity.coord.lat, longitude: selectedCity.coord.lon)
+		selectedLocationCoordinates = coordinate
+		performSegue(withIdentifier: "segueToCityInformation", sender: nil)
+	}
+	
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if let storedCities = storedCities, editingStyle == .delete {
+			presenter?.removeCity(cityInfo: storedCities[indexPath.row])
+			self.storedCities?.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		}
 	}
 }
 

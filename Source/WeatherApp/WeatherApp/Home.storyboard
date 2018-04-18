@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,6 +44,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U5h-O8-XVO">
+                                <rect key="frame" x="0.0" y="82" width="375" height="182"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="homeTableViewCell" id="TPZ-L9-3yW" customClass="HomeTableViewCell" customModule="WeatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TPZ-L9-3yW" id="2vd-mB-FCV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFO-a4-YX0">
+                                                    <rect key="frame" x="15" y="11" width="345" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YFO-a4-YX0" firstAttribute="leading" secondItem="2vd-mB-FCV" secondAttribute="leadingMargin" id="2tw-II-CVK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YFO-a4-YX0" secondAttribute="bottom" id="daq-jf-nuj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YFO-a4-YX0" secondAttribute="trailing" id="p3T-2t-3Hx"/>
+                                                <constraint firstItem="YFO-a4-YX0" firstAttribute="top" secondItem="2vd-mB-FCV" secondAttribute="topMargin" id="ww2-Bz-Nhx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityNameLabel" destination="YFO-a4-YX0" id="ZWj-1Q-a0T"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="D8M-od-zNO" id="y2h-JB-Lhf"/>
+                                    <outlet property="delegate" destination="D8M-od-zNO" id="pGF-QE-u97"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -52,6 +88,10 @@
                             <constraint firstItem="x3U-gD-GOy" firstAttribute="top" secondItem="DxV-Pt-xVZ" secondAttribute="bottom" constant="11" id="JdC-qt-mcs"/>
                             <constraint firstItem="x3U-gD-GOy" firstAttribute="leading" secondItem="grO-hn-dzq" secondAttribute="leading" id="T6h-0i-KiF"/>
                             <constraint firstItem="grO-hn-dzq" firstAttribute="bottom" secondItem="x3U-gD-GOy" secondAttribute="bottom" id="TUH-6J-exH"/>
+                            <constraint firstItem="U5h-O8-XVO" firstAttribute="top" secondItem="grO-hn-dzq" secondAttribute="top" constant="18" id="bXg-nk-3Nq"/>
+                            <constraint firstItem="U5h-O8-XVO" firstAttribute="leading" secondItem="grO-hn-dzq" secondAttribute="leading" id="fEY-Ca-tLe"/>
+                            <constraint firstItem="grO-hn-dzq" firstAttribute="trailing" secondItem="U5h-O8-XVO" secondAttribute="trailing" id="kwQ-8g-aWY"/>
+                            <constraint firstItem="DxV-Pt-xVZ" firstAttribute="top" secondItem="U5h-O8-XVO" secondAttribute="bottom" constant="18" id="xZx-22-QjG"/>
                             <constraint firstItem="DxV-Pt-xVZ" firstAttribute="leading" secondItem="grO-hn-dzq" secondAttribute="leading" constant="21" id="xp9-3b-Q6G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="grO-hn-dzq"/>
@@ -59,6 +99,7 @@
                     <navigationItem key="navigationItem" title="Home" id="odQ-J0-ifq"/>
                     <connections>
                         <outlet property="mapView" destination="KBA-Rx-bq1" id="yjO-Jy-Vpd"/>
+                        <outlet property="tableView" destination="U5h-O8-XVO" id="58T-L8-M8j"/>
                         <segue destination="2Ad-PD-Yms" kind="show" identifier="segueToCityInformation" id="VYP-NN-fL0"/>
                     </connections>
                 </viewController>

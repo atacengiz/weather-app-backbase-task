@@ -10,12 +10,14 @@ import Foundation
 @testable import WeatherApp
 
 class CityWeatherPersistanceHelperMock: CityWeatherPersistanceHelper {
-	
 	var isStoreCityInformationGotCalled = false
 	var storedCityInfo: CityWeatherInformation?
 	
 	var isGetStoredCityInformatioGotCalled = false
 	var storedCityInfoToReturn: [CityWeatherInformation]?
+	
+	var isRemoveCityInformationGotCalled = false
+	var removedCityInfo: CityWeatherInformation?
 	
 	func storeCityInformation(info: CityWeatherInformation) {
 		isStoreCityInformationGotCalled = true
@@ -25,5 +27,10 @@ class CityWeatherPersistanceHelperMock: CityWeatherPersistanceHelper {
 	func getStoredCityInformation() -> [CityWeatherInformation]? {
 		isGetStoredCityInformatioGotCalled = true
 		return storedCityInfoToReturn
+	}
+	
+	func removeCityInformation(info: CityWeatherInformation) {
+		isRemoveCityInformationGotCalled = true
+		removedCityInfo = info
 	}
 }
